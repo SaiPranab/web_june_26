@@ -1,0 +1,22 @@
+.one {
+  background-color: cyan;
+  /* width: 300px; */
+  max-width: 300px;
+
+  /* height: 300px; */
+  min-height: 300px;
+}
+
+.parent {
+  background-color: brown;
+  max-width: 800px;
+
+  height: 400px;
+}
+
+.two {
+  background-color: chartreuse;
+  width: 50%;
+
+  height: 50%;
+}
