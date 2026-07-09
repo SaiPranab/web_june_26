@@ -17,10 +17,23 @@ ul {
 }
 
 .css {
-  background-color: aqua;
+  /* background-color: aqua; */
 
   position: absolute;
 
   top: 10px;
   left: 10px;
+
+  inset: 20px;
+  position: inherit;
+
+  position: unset;
+}
+
+.js {
+  background-color: blueviolet;
+
+  position: fixed;
+  top: 30px;
+  left: 30px;
 }

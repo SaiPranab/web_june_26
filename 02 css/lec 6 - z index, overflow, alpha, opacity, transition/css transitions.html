@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      height: 200px;
+      width: 200px;
+      background-color: aqua;
+
+      transition-duration: 1s;
+      transition-delay: .2s;
+      transition-timing-function: ease;
+    }
+
+    div:hover {
+      background-color: black;
+      border-radius: 50%;
+      color: red;
+      font-size: 24px;
+    }
+
+    div:hover::after {
+      content: "Sai Pranab Patra";
+    }
+
+    section {
+      height: 200px;
+      width: 200px;
+      background-color: darkolivegreen;
+      margin-top: 0 auto;
+
+      transition: all 2s ease 0.2s;
+    }
+
+    section:hover {
+      margin-top: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <section></section>
+</body>
+
+</html>
