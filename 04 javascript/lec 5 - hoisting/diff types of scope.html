@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./diff type of scope.js"></script>
+</head>
+<body style="font-family: cursive;">
+    <h2>global scope & script scope</h2>
+    <p>- The variables which are declared directly in the js file or (outside any function) have <b>global scope.</b></p>
+    <p>- Specificly the variables which are declared with <b>var keyword </b> & the <b>functionk declaration</b> are present inside the <b>global scope</b> & the variables or functions declared with <b>let & const</b> are present inside the <b>script scope.</b></p>
+
+    <h2>local or function scope</h2>
+    <p>- The variables are which are declared within a function have local scope or function scope</p>
+    <p>- It means we can only access the variables within that particular function</p>
+    
+    <h2>Block Scope</h2>
+    <p>- On the otherhand the variables which are declared within any block have <b>block scope.</b></p>
+    
+    <h2>Lexical Scope</h2>
+    <p>- When we write a function inside another function, it can access & use the variables of it's outer function</p>
+
+    <h3>Scope Chaining</h3>
+    <p>- When a variable is accessed within a function, Javascript looks for that variable in the current function
+        scope, then it's parent function scope, and so on upto the global scope. This forms <b>Scope Chaining</b></p>
+</body>
+</html>
