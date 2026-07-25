@@ -168,3 +168,72 @@
     <p>- In simple word we cann access the function declarations & varaibles declared with var keyword before it's initilisation</p>
 </body>
 </html>
+
+
+<!-- ---------------------------- Different Scopes & Scope Chaining in Js -------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family: cursive;">
+    <h2>global scope</h2>
+    <p>- The variables which are declared directly in the js file or (outside any function) have <b>global scope.</b></p>
+    <p>- Specificly the variables which are declared with <b>var keyword </b> & the <b>functionk declaration</b> are present inside the <b>global scope</b> & the variables or functions declared with <b>let & const</b> are present inside the <b>script scope.</b></p>
+
+    <br>
+    
+    <h2>Block Scope</h2>
+    <p>- On the otherhand the variables which are declared within any function have <b>local scope.</b></p>
+    
+    <h2>Lexical Scope</h2>
+    <p>- When we write a function inside another function, it can access & use the variables of it's outer function</p>
+
+    <h3>Scope Chaining</h3>
+    <p>- When a variable is accessed within a function, Javascript looks for that variable in the current function
+        scope, then it's parent function scope, and so on upto the global scope. This forms <b>Scope Chaining</b></p>
+</body>
+</html>
+
+
+<!-- ---------------------------- HIgher Order Functions, setTimeout, setInterval, Clousers & Arrow functions ------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="font-family: cursive;">
+    <h1>Higher Order Functions</h1>
+    <p>- When a function takes a function as an arguement or return a function as a value then that function called as
+        <b>higher order function</b>.
+    </p>
+
+    <h1>Callback Function</h1>
+    <p>- When a is passed as an arguement within another function calling time, that function is called as <b>Callback
+            function.</b></p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        function A(cb) {}
+        <br>
+        function B() {}
+        <br>
+        A(B)
+    </code>
+    <br>
+    <i>here A -> Higher Order function</i>
+    <br>
+    <i>here B -> Callback function</i>
+
+    <h1>Clouser in js</h1>
+    <p>- Clousure means when an inner function "remembers" and can access the variables of its outer function, even after the outer function has finished it's execution. </p>
+</body>
+
+</html>
