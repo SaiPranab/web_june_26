@@ -44,13 +44,24 @@
 // setTimeout(f1, 3000)
 // console.log(3)
 
-function f1() {
-  console.log("Hiiiiiii")
-}
+// function f1() {
+//   console.log("Hiiiiiii")
+// }
 
-const intervalId = setInterval(f1, 2000)
-console.log("/////////////", intervalId)
-setTimeout(function () {
-  console.log("Clearing interval")
-  clearInterval(intervalId)
-}, 10000)
+// const intervalId = setInterval(f1, 2000)
+// console.log("/////////////", intervalId)
+// const timerId = setTimeout(function () {
+//   console.log("Clearing interval")
+//   clearInterval(intervalId)
+//   clearTimeout(timerId)
+// }, 10000)
+
+// setTimeout()
+
+// ==============================
+console.log(1)
+const id = setInterval(function () {
+  console.log(":::::::::")
+}, 1000)
+clearInterval(id)
+console.log(2)
