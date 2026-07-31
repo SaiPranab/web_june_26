@@ -239,3 +239,267 @@
 </body>
 
 </html>
+
+
+
+<!-- --------------------------------- Object in JS ---------------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Objects</title>
+</head>
+
+<body style="font-family: cursive;">
+
+    <h1>Object in JavaScript</h1>
+    <p>- An <b>Object</b> is a collection of <b>key-value pairs</b> used to store related data and functionalities in
+        JavaScript.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Rahul", <br>
+        &nbsp;&nbsp;age: 21 <br>
+        };
+    </code>
+
+    <h1>Object Methods</h1>
+    <p>- A function defined inside an object is called an <b>Object Method</b>. It is used to perform operations using
+        the object's properties.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        let person = { <br>
+        &nbsp;&nbsp;name: "Amit", <br>
+        &nbsp;&nbsp;greet: function() { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Hello"; <br>
+        &nbsp;&nbsp;} <br>
+        };
+    </code>
+
+    <h1>Nested Object</h1>
+    <p>- A <b>Nested Object</b> is an object that contains another object as one of its properties. It is used to
+        organize related data in a structured way.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+    let student = { <br>
+    &nbsp;&nbsp;name: "Rahul", <br>
+    &nbsp;&nbsp;age: 20, <br>
+    &nbsp;&nbsp;address: { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;city: "Hyderabad", <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;state: "Telangana" <br>
+    &nbsp;&nbsp;} <br>
+    }; <br><br>
+
+    console.log(student.address.city); <br>
+    // Output: Hyderabad
+</code>
+
+    <h1>const Object</h1>
+    <p>- When an object is declared using <b>const</b>, its reference cannot be reassigned, but its properties can be
+        added, updated, or deleted.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        const user = { name: "Raj" }; <br>
+        user.age = 22; &nbsp;// Allowed <br>
+        user.name = "Rohan"; &nbsp;// Allowed <br>
+        // user = {}; Not Allowed
+    </code>
+
+    <h1>Object.seal()</h1>
+    <p>- <b>Object.seal()</b> prevents adding or deleting properties from an object, but existing properties can still
+        be updated.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        let obj = { name: "John" }; <br>
+        Object.seal(obj); <br>
+        obj.name = "David"; &nbsp;// Allowed <br>
+        obj.age = 25; &nbsp;// Not Allowed <br>
+        delete obj.name; &nbsp;// Not Allowed
+    </code>
+
+    <h1>Object.freeze()</h1>
+    <p>- <b>Object.freeze()</b> makes an object completely immutable. Properties cannot be added, deleted, or modified.
+    </p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        let emp = { name: "Sam" }; <br>
+        Object.freeze(emp); <br>
+        emp.name = "Alex"; &nbsp;// Not Allowed <br>
+        emp.age = 30; &nbsp;// Not Allowed <br>
+        delete emp.name; &nbsp;// Not Allowed
+    </code>
+
+</body>
+
+</html>
+
+
+<!-- ---------------------------------------- Array & Its methods --------------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrays</title>
+</head>
+
+<body style="font-family: cursive;">
+
+    <h1>Array in JavaScript</h1>
+    <p>- An <b>Array</b> is a special object used to store <b>multiple values</b> in a single variable. Each value is
+        stored at an index, starting from <b>0</b>.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        let fruits = ["Apple", "Banana", "Mango"]; <br>
+        console.log(fruits[0]); // Apple
+    </code>
+
+    <h1>Array Methods</h1>
+    <p>- <b>Array Methods</b> are built-in functions used to add, remove, search, modify, or iterate over array
+        elements.</p>
+
+    <h2>push(element1, element2, ..., elementN)</h2>
+    <p>- <b>push()</b> adds one or more elements to the <b>end</b> of an array and returns the new length.</p>
+
+    <h2>pop()</h2>
+    <p>- <b>pop()</b> removes the <b>last</b> element from an array and returns the removed element.</p>
+
+    <h2>unshift(element1, element2, ..., elementN)</h2>
+    <p>- <b>unshift()</b> adds one or more elements to the <b>beginning</b> of an array.</p>
+
+    <h2>shift()</h2>
+    <p>- <b>shift()</b> removes the <b>first</b> element from an array and returns the removed element.</p>
+
+    <h2>includes(searchElement, fromIndex)</h2>
+    <p>- <b>includes()</b> checks whether an element exists in an array and returns <b>true</b> or <b>false</b>.</p>
+
+    <h2>indexOf(searchElement, fromIndex)</h2>
+    <p>- <b>indexOf()</b> returns the index of the first occurrence of an element. If the element is not found, it
+        returns <b>-1</b>.</p>
+
+    <h2>lastIndexOf(searchElement, fromIndex)</h2>
+    <p>- <b>lastIndexOf()</b> returns the last index of an element. If the element is not found, it returns <b>-1</b>.
+    </p>
+
+    <h2>slice(start, end)</h2>
+    <p>- <b>slice()</b> returns a new array containing selected elements without changing the original array.</p>
+
+    <h2>splice(start, deleteCount, item1, item2, ...)</h2>
+    <p>- <b>splice()</b> adds, removes, or replaces elements in an array by modifying the original array.</p>
+
+    <h2>concat(array1, array2, ...)</h2>
+    <p>- <b>concat()</b> joins two or more arrays and returns a new array.</p>
+
+    <h2>join(separator)</h2>
+    <p>- <b>join()</b> converts all array elements into a string using a specified separator.</p>
+
+    <h2>reverse()</h2>
+    <p>- <b>reverse()</b> reverses the order of elements in the original array.</p>
+
+    <h2>sort()</h2>
+    <p>- <b>sort()</b> sorts the elements of an array. By default, it sorts elements as strings.</p>
+
+    <h2>forEach(callbackFn)</h2>
+    <p>- <b>forEach()</b> executes a callback function once for each array element. It does not return a new array.</p>
+
+    <h2>map(callbackFn)</h2>
+    <p>- <b>map()</b> creates a new array by applying a callback function to every element of an array.</p>
+
+    <h2>filter(callbackFn)</h2>
+    <p>- <b>filter()</b> creates a new array containing only the elements that satisfy a given condition.</p>
+
+    <h2>some(callbackFn)</h2>
+    <p>- <b>some()</b> checks whether <b>at least one</b> element in an array satisfies a given condition. It returns
+        <b>true</b> if any element matches; otherwise, it returns <b>false</b>.</p>
+
+    <h2>every(callbackFn)</h2>
+    <p>- <b>every()</b> checks whether <b>all</b> elements in an array satisfy a given condition. It returns <b>true</b>
+        only if every element matches; otherwise, it returns <b>false</b>.</p>
+
+    <h2>find(callbackFn)</h2>
+    <p>- <b>find()</b> returns the first element that satisfies a given condition. If no element matches, it returns
+        <b>undefined</b>.</p>
+
+    <h2>findIndex(callbackFn)</h2>
+    <p>- <b>findIndex()</b> returns the index of the first element that satisfies a given condition. If no element
+        matches, it returns <b>-1</b>.</p>
+
+    <h2>reduce(callbackFn, initialValue)</h2>
+    <p>- <b>reduce()</b> reduces all array elements to a single value by executing a callback function.</p>
+</body>
+
+</html>
+
+
+
+<!----------------------------------- Arguments Keyword, Rest Parameter & Spread Operator ----------------------------------->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body style="font-family: cursive;">
+    
+     <h1>arguments Keyword</h1>
+     <p>- The <b>arguments</b> keyword is an <b>array-like object</b> available inside regular functions. It contains all the arguments passed to the function.</p>
+     <p>- It can access arguments using index values, but it is <b>not available in arrow functions</b>.</p>
+     <p>- It does not uses Array methods such as <b>map, filter, reduce</b>.</p>
+     
+     <b>Ex - </b>
+     <br>
+     <code>
+         function sum() { <br>
+            &nbsp;&nbsp;console.log(arguments); <br>
+            &nbsp;&nbsp;console.log(arguments[0]); <br>
+        } <br><br>
+        
+        sum(10, 20, 30);
+    </code>
+    
+    <h1>Rest Parameters (...args)</h1>
+    <p>- <b>Rest Parameters</b> collect multiple function arguments into a <b>single array</b>.</p>
+    <p>- It is represented using <b>...</b> and must always be the <b>last parameter</b> of the function.</p>
+
+    <b>Ex - </b>
+    <br>
+    <code>
+        function sum(...nums) { <br>
+            &nbsp;&nbsp;console.log(nums); <br>
+        } <br><br>
+        
+        sum(10, 20, 30, 40); // [10, 20, 30, 40]
+    </code>
+    
+    <h1>Spread Operator (...)</h1>
+    <p>- The <b>Spread Operator (...)</b> is used to <b>expand an iterable</b> (like Array, String, Map, Set, etc.) into individual elements.</p>
+    <p>- It is mainly used to <b>copy arrays/objects</b>, <b>merge arrays/objects</b>, and <b>pass array elements as function arguments</b>.</p>
+    
+    <b>Ex - </b>
+    <br>
+    <code>
+        let arr1 = [10, 20]; <br>
+        let arr2 = [...arr1, 30, 40]; <br><br>
+        
+        console.log(arr2); // [10, 20, 30, 40]
+    </code>
+</body>
+</html>
