@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Arrays</title>
+  <script src="./array.js"></script>
+</head>
+
+<body style="font-family: cursive;">
+
+  <h1>Array in JavaScript</h1>
+  <p>- An <b>Array</b> is a special object used to store <b>multiple values</b> in a single variable. Each value is
+    stored at an index, starting from <b>0</b>.</p>
+  <p>- We can extract the size of the array by using <code><b>length</b></code> property</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let fruits = ["Apple", "Banana", "Mango"]; <br>
+        console.log(fruits[0]); // Apple
+        console.log(fruits.length); // 3
+    </code>
+
+  <h1>Array Methods</h1>
+  <p>- <b>Array Methods</b> are built-in functions used to add, remove, search, modify, or iterate over array
+    elements.</p>
+
+  <h2>push(element1, element2, ..., elementN)</h2>
+  <p>- <b>push()</b> adds one or more elements to the <b>end</b> of an array and returns the new length.</p>
+
+  <h2>pop()</h2>
+  <p>- <b>pop()</b> removes the <b>last</b> element from an array and returns the removed element.</p>
+
+  <h2>unshift(element1, element2, ..., elementN)</h2>
+  <p>- <b>unshift()</b> adds one or more elements to the <b>beginning</b> of an array.</p>
+
+  <h2>shift()</h2>
+  <p>- <b>shift()</b> removes the <b>first</b> element from an array and returns the removed element.</p>
+
+  <h2>includes(searchElement, fromIndex)</h2>
+  <p>- <b>includes()</b> checks whether an element exists in an array and returns <b>true</b> or <b>false</b>.</p>
+
+  <h2>indexOf(searchElement, fromIndex)</h2>
+  <p>- <b>indexOf()</b> returns the index of the first occurrence of an element. If the element is not found, it
+    returns <b>-1</b>.</p>
+
+  <h2>lastIndexOf(searchElement, fromIndex)</h2>
+  <p>- <b>lastIndexOf()</b> returns the last index of an element. If the element is not found, it returns <b>-1</b>.
+  </p>
+
+  <h2>slice(start, end)</h2>
+  <p>- <b>slice()</b> returns a new array containing selected elements without changing the original array.</p>
+
+  <h2>splice(start, deleteCount, item1, item2, ...)</h2>
+  <p>- <b>splice()</b> adds, removes, or replaces elements in an array by modifying the original array.</p>
+
+  <h2>concat(array1, array2, ...)</h2>
+  <p>- <b>concat()</b> joins two or more arrays and returns a new array.</p>
+
+  <h2>join(separator)</h2>
+  <p>- <b>join()</b> converts all array elements into a string using a specified separator.</p>
+
+  <h2>reverse()</h2>
+  <p>- <b>reverse()</b> reverses the order of elements in the original array.</p>
+
+  <h2>sort()</h2>
+  <p>- <b>sort()</b> sorts the elements of an array. By default, it sorts elements as strings.</p>
+
+  <h2>forEach(callbackFn)</h2>
+  <p>- <b>forEach()</b> executes a callback function once for each array element. It does not return a new array.</p>
+
+  <h2>map(callbackFn)</h2>
+  <p>- <b>map()</b> creates a new array by applying a callback function to every element of an array.</p>
+
+  <h2>filter(callbackFn)</h2>
+  <p>- <b>filter()</b> creates a new array containing only the elements that satisfy a given condition.</p>
+
+  <h2>some(callbackFn)</h2>
+  <p>- <b>some()</b> checks whether <b>at least one</b> element in an array satisfies a given condition. It returns
+    <b>true</b> if any element matches; otherwise, it returns <b>false</b>.
+  </p>
+
+  <h2>every(callbackFn)</h2>
+  <p>- <b>every()</b> checks whether <b>all</b> elements in an array satisfy a given condition. It returns <b>true</b>
+    only if every element matches; otherwise, it returns <b>false</b>.</p>
+
+  <h2>find(callbackFn)</h2>
+  <p>- <b>find()</b> returns the first element that satisfies a given condition. If no element matches, it returns
+    <b>undefined</b>.
+  </p>
+
+  <h2>findIndex(callbackFn)</h2>
+  <p>- <b>findIndex()</b> returns the index of the first element that satisfies a given condition. If no element
+    matches, it returns <b>-1</b>.</p>
+
+  <h2>reduce(callbackFn, initialValue)</h2>
+  <p>- <b>reduce()</b> reduces all array elements to a single value by executing a callback function.</p>
+</body>
+
+</html>
