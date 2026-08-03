@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Objects</title>
+  <script src="./Object.js"></script>
+</head>
+
+<body style="font-family: cursive;">
+
+  <h1>Object in JavaScript</h1>
+  <p>- An <b>Object</b> is a collection of <b>key-value pairs</b> used to store related data and functionalities in
+    JavaScript.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Rahul", <br>
+        &nbsp;&nbsp;age: 21 <br>
+        };
+    </code>
+
+  <h1>Object Methods</h1>
+  <p>- A function defined inside an object is called an <b>Object Method</b>. It is used to perform operations using
+    the object's properties.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let person = { <br>
+        &nbsp;&nbsp;name: "Amit", <br>
+        &nbsp;&nbsp;greet: function() { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Hello"; <br>
+        &nbsp;&nbsp;} <br>
+        };
+    </code>
+
+  <h1>Nested Object</h1>
+  <p>- A <b>Nested Object</b> is an object that contains another object as one of its properties. It is used to
+    organize related data in a structured way.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+    let student = { <br>
+    &nbsp;&nbsp;name: "Rahul", <br>
+    &nbsp;&nbsp;age: 20, <br>
+    &nbsp;&nbsp;address: { <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;city: "Hyderabad", <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;state: "Telangana" <br>
+    &nbsp;&nbsp;} <br>
+    }; <br><br>
+
+    console.log(student.address.city); <br>
+    // Output: Hyderabad
+</code>
+
+  <h1>const Object</h1>
+  <p>- When an object is declared using <b>const</b>, its reference cannot be reassigned, but its properties can be
+    added, updated, or deleted.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        const user = { name: "Raj" }; <br>
+        user.age = 22; &nbsp;// Allowed <br>
+        user.name = "Rohan"; &nbsp;// Allowed <br>
+        // user = {}; Not Allowed
+    </code>
+
+  <h1>Object.seal()</h1>
+  <p>- <b>Object.seal()</b> prevents adding or deleting properties from an object, but existing properties can still
+    be updated.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let obj = { name: "John" }; <br>
+        Object.seal(obj); <br>
+        obj.name = "David"; &nbsp;// Allowed <br>
+        obj.age = 25; &nbsp;// Not Allowed <br>
+        delete obj.name; &nbsp;// Not Allowed
+    </code>
+
+  <h1>Object.freeze()</h1>
+  <p>- <b>Object.freeze()</b> makes an object completely immutable. Properties cannot be added, deleted, or modified.
+  </p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let emp = { name: "Sam" }; <br>
+        Object.freeze(emp); <br>
+        emp.name = "Alex"; &nbsp;// Not Allowed <br>
+        emp.age = 30; &nbsp;// Not Allowed <br>
+        delete emp.name; &nbsp;// Not Allowed
+    </code>
+
+</body>
+
+</html>
