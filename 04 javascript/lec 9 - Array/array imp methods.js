@@ -101,10 +101,70 @@ let numbers = [10, 20, 30, 40, 50]
 
 
 // =========================== find(), findIndex()
-numbers = [10, 20, 30, 40,  51]
+numbers = [10, 20, 30, 40, 51]
 
-const number = numbers.find(num => num == 41)
-console.log("is 41 found", number)
+// const number = numbers.find(num => num == 41)
+// console.log("is 41 found", number)
 
-const numberIdx = numbers.findIndex(num => num == 41)
-console.log("is 41 found", numberIdx)
+// const numberIdx = numbers.findIndex(num => num == 41)
+// console.log("is 41 found", numberIdx)
+
+
+// const sum = numbers.reduce((prevVal, currVal, idx, arr) => {
+//   console.log("previous Value is", prevVal, "current value is", currVal, "at idx", idx, "of array", arr)
+
+//   return prevVal + currVal
+// })
+// console.log("////////// sum", sum)
+
+
+const orders = [
+  {
+    id: 101,
+    amount: 2000,
+    status: "Delivered"
+  },
+  {
+    id: 102,
+    amount: 4000,
+    status: "Pending"
+  },
+  {
+    id: 103,
+    amount: 6000,
+    status: "Delivered"
+  },
+]
+// // 1. find the orders whoose status is Delivered
+// const deliveredOrders = orders.filter(order => order.status === 'Delivered')
+// console.log("//// delivered Orders", deliveredOrders)
+
+// // 2. merge the delivered orders amount to get the total sale
+// const totalSale = deliveredOrders.reduce((prev, curr)=> {
+//   console.log("....... prev", prev , "currr", curr)
+//   return prev + curr.amount
+// }, 0)
+// console.log("/////// total sale ", totalSale)
+
+
+const users = [
+  {
+    id: 1,
+    name: "Sarthak",
+    age: 20
+  },
+  {
+    id: 2,
+    name: "Amit",
+    age: 26
+  },
+  {
+    id: 3,
+    name: "Nikhil",
+    age: 28
+  },
+]
+// find the average age of users
+const totalAge = users.reduce((prev, curr) => prev + curr.age, 0)
+console.log("//// total age", totalAge)
+console.log("//// average age", totalAge / users.length)

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./rest paramter.js"></script>
+</head>
+
+<body style="font-family: cursive;">
+  <h1>arguments Keyword</h1>
+  <p>- The <b>arguments</b> keyword is an <b>array-like object</b> available inside regular functions. It contains all
+    the arguments passed to the function.</p>
+  <p>- It can access arguments using index values, but it is <b>not available in arrow functions</b>.</p>
+  <p>- It does not uses Array methods such as <b>map, filter, reduce</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+         function sum() { <br>
+            &nbsp;&nbsp;console.log(arguments); <br>
+            &nbsp;&nbsp;console.log(arguments[0]); <br>
+        } <br><br>
+        
+        sum(10, 20, 30);
+    </code>
+
+  <h1>Rest Parameters (...args)</h1>
+  <p>- <b>Rest Parameters</b> collect multiple function arguments into a <b>single array</b>.</p>
+  <p>- It is represented using <b>...</b> and must always be the <b>last parameter</b> of the function.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        function sum(...nums) { <br>
+            &nbsp;&nbsp;console.log(nums); <br>
+        } <br><br>
+        
+        sum(10, 20, 30, 40); // [10, 20, 30, 40]
+    </code>
+
+  <h1>Spread Operator (...)</h1>
+  <p>- The <b>Spread Operator (...)</b> is used to <b>expand an iterable</b> (like Array, String, Map, Set, etc.) into
+    individual elements.</p>
+  <p>- It is mainly used to <b>copy arrays/objects</b>, <b>merge arrays/objects</b>, and <b>pass array elements as
+      function arguments</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let arr1 = [10, 20]; <br>
+        let arr2 = [...arr1, 30, 40]; <br><br>
+        
+        console.log(arr2); // [10, 20, 30, 40]
+    </code>
+</body>
+
+</html>
