@@ -1,0 +1,674 @@
+<!-- ---------------------------- DOM in JS --------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM in JavaScript</title>
+</head>
+
+<body style="font-family: cursive">
+    <h1>Document Object Model (DOM) in JS</h1>
+    <p>- DOM stands for <strong>Document Object Model</strong>.</p>
+    <p>- The DOM represents an HTML document as a tree of objects.</p>
+    <p>- Using JavaScript, we can access, modify, create, and remove HTML elements through the DOM.</p>
+
+
+    <h2>Document</h2>
+    <p>- The <code>document</code> object represents the complete HTML document loaded in the browser.</p>
+    <p>eg: <code>console.log(document)</code></p>
+
+    <p>- We can use the <code>document</code> object to access HTML elements and perform different DOM operations.</p>
+    <p>eg: <code>document.title</code></p>
+
+
+    <h2>document.children</h2>
+    <p>- The <code>children</code> property returns the direct child elements of an element.</p>
+    <p>- It returns an <code>HTMLCollection</code>.</p>
+    <p>eg: <code>document.children</code></p>
+    <p>- In a normal HTML document, the collection generally contains the <code>&lt;html&gt;</code> element.</p>
+    <p>eg: <code>document.children[0]</code> // <code>&lt;html&gt;...&lt;/html&gt;</code></p>
+
+
+    <h2>innerText</h2>
+    <p>- The <code>innerText</code> property is used to get or set the visible text of an HTML element.</p>
+    <p>eg: <code>element.innerText</code></p>
+    <p>- We can also change the text of an element.</p>
+    <p>eg: <code>element.innerText = "Hello World"</code></p>
+
+
+    <h2>innerHTML</h2>
+    <p>- The <code>innerHTML</code> property is used to get or set the HTML content inside an element.</p>
+    <p>eg: <code>element.innerHTML</code></p>
+    <p>- It returns the HTML markup contained inside the element.</p>
+    <p>- We can also change the text of an element.</p>
+    <p>eg: <code>element.innerHTML = "&lt;strong&gt;Hello&lt;/strong&gt;"</code></p>
+
+
+    <h2>textContent</h2>
+    <p>- The <code>textContent</code> property is used to get or set the text content of an HTML element.</p>
+    <p>eg: <code>element.textContent</code></p>
+    <p>- It returns all the text content inside an element, including text that may not be visible on the page.</p>
+    <p>- We can also change the text content of an element.</p>
+    <p>eg: <code>element.textContent = "Hello World"</code></p>
+
+
+    <h3>Difference Between innerText, textContent and innerHTML</h3>
+    <p>- <code>innerText</code> returns the visible/rendered text of an element.</p>
+    <p>- <code>textContent</code> returns all text content of an element, including text that may not currently be
+        visible.</p>
+    <p>- <code>innerHTML</code> returns the HTML markup inside an element.</p>
+    <p>For example:</p>
+    <p>
+        <code>&lt;div&gt;Hello &lt;strong style="display: none;"&gt;World&lt;/strong&gt;&lt;/div&gt;</code>
+    </p>
+    <ul>
+        <li><code>innerText</code> → <code>Hello</code></li>
+        <li><code>textContent</code> → <code>Hello World</code></li>
+        <li><code>innerHTML</code> → <code>Hello &lt;strong style="display: none;"&gt;World&lt;/strong&gt;</code></li>
+    </ul>
+
+
+    <h2>Selecting Elements</h2>
+    <p>- JavaScript provides different methods to select HTML elements from the DOM.</p>
+
+    <h3>getElementsByTagName()</h3>
+    <p>- The <code>getElementsByTagName()</code> method selects elements using their HTML tag name.</p>
+    <p>- It returns an <code>HTMLCollection</code>.</p>
+    <p>eg: <code>document.getElementsByTagName("p")</code> // All <code>&lt;p&gt;</code> elements in the document.</p>
+
+    <h3>getElementsByClassName()</h3>
+    <p>- The <code>getElementsByClassName()</code> method selects elements using their class name.</p>
+    <p>- It returns an <code>HTMLCollection</code>.</p>
+    <p>eg: <code>document.getElementsByClassName("box")</code> // elements having the class <code>box</code>.</p>
+
+    <h3>getElementById()</h3>
+    <p>- The <code>getElementById()</code> method selects an element using its <code>id</code>.</p>
+    <p>- It returns a single element or <code>null</code> if no matching element is found.</p>
+    <p>eg: <code>document.getElementById("heading")</code> // The element having <code>id="heading"</code>.</p>
+
+    <h3>querySelector()</h3>
+    <p>- The <code>querySelector()</code> method selects the first element that matches a CSS selector.</p>
+    <p>eg: <code>document.querySelector(".box")</code> // The first element having the class <code>box</code>.</p>
+    <p>eg: <code>document.querySelector("#heading")</code> // The first element having the ID <code>heading</code>.</p>
+
+    <h3>querySelectorAll()</h3>
+    <p>- The <code>querySelectorAll()</code> method selects all elements that match a CSS selector.</p>
+    <p>- It returns a <code>NodeList</code>.</p>
+    <p>eg: <code>document.querySelectorAll(".box")</code> // All elements having the class <code>box</code>.</p>
+
+
+    <h2>Getting and Setting Attributes</h2>
+    <p>- HTML elements can have attributes such as <code>id</code>, <code>class</code>, <code>href</code>,
+        <code>src</code>, and <code>title</code>.
+    </p>
+
+    <h3>getAttribute()</h3>
+    <p>- The <code>getAttribute()</code> method is used to get the value of an attribute.</p>
+    <p>eg: <code>element.getAttribute("id")</code> // The value of the <code>id</code> attribute.</p>
+
+    <h3>setAttribute()</h3>
+    <p>- The <code>setAttribute()</code> method is used to add a new attribute or change an existing attribute.</p>
+    <p>eg: <code>element.setAttribute("title", "Hello")</code> // The element gets the attribute <code>title="Hello"</code>.</p>
+
+    <h3>removeAttribute()</h3>
+    <p>- The <code>removeAttribute()</code> method is used to remove an attribute from an element.</p>
+    <p>eg: <code>element.removeAttribute("title")</code> // The <code>title</code> attribute is removed.</p>
+
+    
+    <h2>Applying Styles</h2>
+    <p>- JavaScript provides different ways to apply CSS styles and classes to HTML elements.</p>
+
+    <h3>style</h3>
+    <p>- The <code>style</code> property is used to apply inline CSS styles directly to an element.</p>
+    <p>eg: <code>element.style.color = "red"</code></p>
+    <p>eg: <code>element.style.backgroundColor = "yellow"</code></p>
+
+    <h3>className</h3>
+    <p>- The <code>className</code> property is used to get or replace the complete value of the <code>class</code>
+        attribute.</p>
+    <p>eg: <code>element.className = "box active"</code></p>
+    <p>- Assigning <code>className</code> replaces the existing class value.</p>
+
+    <h3>classList.add()</h3>
+    <p>- The <code>classList.add()</code> method adds one or more classes to an element.</p>
+    <p>eg: <code>element.classList.add("active")</code></p>
+    <p>- Existing classes are not removed.</p>
+
+    <h3>classList.remove()</h3>
+    <p>- The <code>classList.remove()</code> method removes one or more classes from an element.</p>
+    <p>eg: <code>element.classList.remove("active")</code></p>
+
+    <h3>classList.toggle()</h3>
+    <p>- The <code>classList.toggle()</code> method adds a class if it does not exist and removes it if it already
+        exists.</p>
+    <p>eg: <code>element.classList.toggle("active")</code></p>
+
+
+    <h2>Accessing Parent and Sibling Elements</h2>
+    <p>- DOM navigation allows us to move from one element to its parent or sibling elements.</p>
+
+    <h3>parentElement</h3>
+    <p>- The <code>parentElement</code> property returns the parent HTML element of the current element.</p>
+    <p>eg: <code>element.parentElement</code></p>
+
+    <h3>nextElementSibling</h3>
+    <p>- The <code>nextElementSibling</code> property returns the next sibling that is an HTML element.</p>
+    <p>eg: <code>element.nextElementSibling</code></p>
+
+    <h3>previousElementSibling</h3>
+    <p>- The <code>previousElementSibling</code> property returns the previous sibling that is an HTML element.</p>
+    <p>eg: <code>element.previousElementSibling</code></p>
+
+    <h3>nextSibling</h3>
+    <p>- The <code>nextSibling</code> property returns the next sibling node.</p>
+    <p>- Unlike <code>nextElementSibling</code>, it can return a text node, such as whitespace between HTML elements.
+    </p>
+    <p>eg: <code>element.nextSibling</code></p>
+
+
+    <h2>Adding Elements</h2>
+
+    <h3>append()</h3>
+    <p>- The <code>append()</code> method adds content at the end of an element.</p>
+    <p>- It can add elements as well as plain text.</p>
+    <p>- It can also accept multiple arguments.</p>
+    <p>eg: <code>element.append("Hello")</code></p>
+    <p>eg: <code>element.append(childElement)</code></p>
+
+    <h3>appendChild()</h3>
+    <p>- The <code>appendChild()</code> method adds a single node as the last child of an element.</p>
+    <p>eg: <code>element.appendChild(childElement)</code></p>
+
+    <h3>prepend()</h3>
+    <p>- The <code>prepend()</code> method adds content at the beginning of an element.</p>
+    <p>- It can add elements as well as plain text.</p>
+    <p>eg: <code>element.prepend("Hello")</code></p>
+
+    <h2>Creating Elements</h2>
+    <h3>createElement()</h3>
+    <p>- The <code>createElement()</code> method creates a new HTML element.</p>
+    <p>- The newly created element is not automatically added to the document.</p>
+    <p>eg: <code>let div = document.createElement("div")</code></p>
+    <p>- We can add the newly created element to the document using <code>append()</code> or <code>appendChild()</code>.
+    </p>
+    <p>eg: <code>document.body.append(div)</code></p>
+
+
+    <h2>Removing Elements</h2>
+    <h3>remove()</h3>
+    <p>- The <code>remove()</code> method removes an element from the DOM.</p>
+    <p>eg: <code>element.remove()</code> // The element is removed from the document.</p>
+
+
+    <h2>insertAdjacentHTML()</h2>
+    <p>- The <code>insertAdjacentHTML()</code> method inserts HTML at a specified position relative to an element.</p>
+    <p>eg:
+        <code>element.insertAdjacentHTML("beforeend", "&lt;p&gt;Hello&lt;/p&gt;")</code>
+    </p>
+    <p>- It accepts four positions:</p>
+    <ul>
+        <li><code>beforebegin</code></li>
+        <li><code>afterbegin</code></li>
+        <li><code>beforeend</code></li>
+        <li><code>afterend</code></li>
+    </ul>
+
+
+    <h2>insertAdjacentElement()</h2>
+    <p>- The <code>insertAdjacentElement()</code> method inserts an existing HTML element at a specified position.</p>
+    <p>
+        eg:
+        <code>element.insertAdjacentElement("beforebegin", newElement)</code>
+    </p>
+    <p>- The position can be 
+        <ul>
+            <li><code>beforebegin</code></li>
+            <li><code>afterbegin</code></li>
+            <li><code>beforeend</code></li>
+            <li><code>afterend</code></li>
+        </ul>
+    </p>
+
+
+    <h2>insertAdjacentText()</h2>
+    <p>- The <code>insertAdjacentText()</code> method inserts plain text at a specified position relative to an element.
+    </p>
+    <p>
+        eg:
+        <code>element.insertAdjacentText("beforeend", "Hello World")</code>
+    </p>
+    <p>- The provided content is treated as plain text and is not interpreted as HTML.</p>
+
+
+    <h2>closest()</h2>
+    <p>- The <code>closest()</code> method searches upward through the DOM tree and returns the nearest element that
+        matches a specified CSS selector.</p>
+    <p>- The element on which <code>closest()</code> is called is also checked.</p>
+    <p>eg: <code>element.closest(".container")</code></p>
+    <p>Result: The nearest element matching the <code>.container</code> selector.</p>
+
+
+    <h2>DOM Methods and Properties</h2>
+    <h3>Properties</h3>
+    <ul>
+        <li><code>document</code></li>
+        <li><code>children</code></li>
+        <li><code>innerText</code></li>
+        <li><code>innerHTML</code></li>
+        <li><code>textContent</code></li>
+        <li><code>parentElement</code></li>
+        <li><code>nextElementSibling</code></li>
+        <li><code>previousElementSibling</code></li>
+        <li><code>nextSibling</code></li>
+        <li><code>style</code></li>
+        <li><code>className</code></li>
+        <li><code>classList</code></li>
+    </ul>
+
+
+    <h3>Methods for Selecting Elements</h3>
+    <ul>
+        <li><code>getElementsByTagName(tagName)</code></li>
+        <li><code>getElementsByClassName(className)</code></li>
+        <li><code>getElementById(id)</code></li>
+        <li><code>querySelector(selector)</code></li>
+        <li><code>querySelectorAll(selector)</code></li>
+    </ul>
+
+
+    <h3>Methods for Attributes</h3>
+    <ul>
+        <li><code>getAttribute(attributeName)</code></li>
+        <li><code>setAttribute(attributeName, value)</code></li>
+        <li><code>removeAttribute(attributeName)</code></li>
+    </ul>
+
+
+    <h3>Methods for Classes</h3>
+    <ul>
+        <li><code>classList.add(className)</code></li>
+        <li><code>classList.remove(className)</code></li>
+        <li><code>classList.toggle(className)</code></li>
+    </ul>
+
+
+    <h3>Methods for Adding and Creating Elements</h3>
+    <ul>
+        <li><code>append(content)</code></li>
+        <li><code>appendChild(node)</code></li>
+        <li><code>prepend(content)</code></li>
+        <li><code>createElement(elementName)</code></li>
+    </ul>
+
+
+    <h3>Methods for Removing and Inserting Elements</h3>
+    <ul>
+        <li><code>remove()</code></li>
+        <li><code>insertAdjacentHTML(position, html)</code></li>
+        <li><code>insertAdjacentElement(position, element)</code></li>
+        <li><code>insertAdjacentText(position, text)</code></li>
+        <li><code>closest(selector)</code></li>
+    </ul>
+
+
+    <h2>Summary</h2>
+    <p>- DOM allows JavaScript to communicate with and manipulate HTML documents.</p>
+    <p>- We can select elements using methods such as
+        <code>getElementById()</code>,
+        <code>querySelector()</code>, and
+        <code>querySelectorAll()</code>.
+    </p>
+    
+    <p>- We can change content using
+        <code>innerText</code>,
+        <code>textContent</code>, and
+        <code>innerHTML</code>.
+    </p>
+
+    <p>- We can manipulate attributes using
+        <code>getAttribute()</code>,
+        <code>setAttribute()</code>, and
+        <code>removeAttribute()</code>.
+    </p>
+
+    <p>- We can modify styles and classes using
+        <code>style</code>,
+        <code>className</code>, and
+        <code>classList</code>.
+    </p>
+
+    <p>- We can navigate through the DOM using properties such as
+        <code>parentElement</code>,
+        <code>nextElementSibling</code>, and
+        <code>previousElementSibling</code>.
+    </p>
+
+    <p>- We can create, insert, and remove elements using methods such as
+        <code>createElement()</code>,
+        <code>append()</code>,
+        <code>prepend()</code>,
+        <code>remove()</code>, and
+        <code>insertAdjacentHTML()</code>.
+    </p>
+</body>
+
+</html>
+
+
+<!-- -------------------------- DOM Events & Event Listeners ---------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family: cursive;">
+    <h1>DOM Events</h1>
+    <p>- DOM events are somethings that happen on a web page which our code can notice. </p>
+    <p>- These can be caused by the user (by clicking, typing, or hovering) or by the browser.</p>
+    <p>- There are several types of DOM Events eg:</p>
+    <ul style="margin-top: -10px;">
+        <li>Mouse Events</li>
+        <li>Keyboard Events</li>
+        <li>Form Events</li>
+        <li>Document Events</li>
+        <li>Drag & Drop Events etc.</li>
+    </ul>
+
+    <h1>DOM Event Listeners</h1>
+    <p>- A DOM event listener is a function that waits for an event to happen and then reacts to it.
+
+    <div style="border: 1px solid black; padding: 5px; background-color: lightgray; border-radius: 5px;">
+        <h4 style="line-height: 0px;">Ex:-</h4>
+        <p>- Events are like signals: something just happened.</p>
+        <p>- Listeners are like peoples: they notice the event and do something in response.</p>
+    </div>
+
+    <p>- There are 3 ways in which we can add an event listener</p>
+    <ul style="margin-top: -10px;">
+        <li>by using <b>Inline HTML attributes</b></li>
+            <ul>
+                <li>Only one handler per event type</li>
+            </ul>
+        <li>by using <b>event properties (like onclick)</b></li>
+            <ul>
+                <li>Only one handler per event type</li>
+                <li>Overwriting occurs if you assign again</li>
+            </ul>
+        <li>by using <b>'addEventListener'</b></li>
+            <ul>
+                <li>Multiple listeners allowed</li>
+            </ul>
+    </ul>
+
+    <h1>Event Object</h1>
+    <p>- In JavaScript, an <b>Event Object</b> is a special object that is automatically passed to event handler functions when an event occurs.</p>
+    <p>- It contains information about the event and provides methods and properties to interact with it.</p>
+    <p>- Key properties & methods</p>
+    <ul style="margin-top: -10px;">
+        <li>type</li>
+        <li>target</li>
+        <li>preventDefault()</li>
+        <li>stopPropagation()</li>
+        <li>clientX, clientY</li>
+        <li>key, code, keycode</li>
+    </ul>
+</p>
+</body>
+</html>
+
+
+<!-- -------------------------- Mouse Events ---------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Interactive Event Cards</title>
+        <style>
+            body {
+              font-family: cursive;  
+            }
+
+            section{
+              text-align: center;
+              margin: 20px;
+            }
+
+            h2 {
+                cursor: grab;
+            }
+
+            .card-btn {
+                padding: 15px 30px;
+                font-size: 18px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+
+            .container {
+                margin-top: 20px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .card {
+                display: inline-block;
+                padding: 10px 20px;
+                margin: 5px;
+                background-color: #f0a500;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Adding Event Listeners:- Mouse Events, Scroll Events, Touch Events, Pointer Events, Drag Events</h1>
+
+        <section>
+          <h2 draggable="true" >Drag Me!</h2>
+          <button class="card-btn">Add Cards</button>
+          <div class="container"></div>
+        </section>
+
+        <script>
+            const h2 = document.querySelector("h2");
+            const addCardButton = document.querySelector(".card-btn");
+            const container = document.querySelector(".container");
+
+            let count = 1;
+
+            // Function to create a new card
+            function createCard(eventType) {
+                const newCard = document.createElement("div");
+                newCard.classList.add("card");
+                newCard.innerText = `${count++} (${eventType})`;
+                container.appendChild(newCard);
+            }
+        </script>
+    </body>
+</html>
+
+
+<!-- -------------------------- Keyboard Events ---------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Keyboard Event Tracker</title>
+        <style>
+            body {
+                font-family: cursive;
+                text-align: center;
+                margin: 20px;
+            }
+
+            h1 {
+                margin-bottom: 20px;
+            }
+
+            .container {
+                margin: auto;
+                max-width: 700px;
+                border: 2px solid red;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+            .key-card {
+                width: 120px;
+                height: 80px;
+                display: inline-block;
+                padding: 15px 25px;
+                margin: 10px;
+                background-color: #3498db;
+                color: white;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: transform 0.2s, background-color 0.3s;
+            }
+
+            .key-card:hover {
+                transform: scale(1.1);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Keyboard Event Tracker</h1>
+        <p>Press any key and watch the magic!</p>
+        <div class="container"></div>
+    </body>
+</html>
+
+
+<!-- -------------------------- Event Bubbling & Capturing ---------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Bubbling and Capturing</title>
+  <style>
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .green {
+      width: 400px;
+      height: 300px;
+      background-color: green;
+    }
+
+    .pink {
+      width: 300px;
+      height: 200px;
+      background-color: hotpink;
+    }
+
+    .blue {
+      width: 200px;
+      height: 100px;
+      background-color: skyblue;
+    }
+  </style>
+</head>
+
+<body style="font-family: cursive">
+  <h1 style="margin-bottom: -5px;">Event Bubbling</h1>
+  <p>- <b>EventBubbling</b> happens when an event happens on a child element then it <b>propagates or bubble up</b> to
+    the ancestor elements</p>
+  <p>- For example, if we click a button inside a div, the click event first happens on the button, then <b>"bubbles
+      up"</b> to the div, and then to the whole <b>document</b>. </p>
+  <p>- for stopping the event bubbling we have to use <b>stopPropagation</b> method of event object.</p>
+
+  <h1 style="margin-bottom: -5px;">Event Capturing</h1>
+  <p>- <b>Event Capturing</b> happens when an event starts from the <b>topmost ancestor</b> (like the document) and
+    travels <b>downward</b> to the target element.</p>
+  <p>- For example, if we click a button inside a div, the event is first captured by the <b>document</b>, then passed
+    to the <b>div</b>, and finally reaches the <b>button</b> where the actual click happened.</p>
+
+
+
+  <h1>Event Bubbling and Event Capturing</h1>
+  <div class="green">
+    <div class="pink">
+      <div class="blue">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!-- -------------------------- Event Delegation ---------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Delegation Party 🎉</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    #party {
+      border: 2px dashed #333;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 600px;
+    }
+
+    .hat {
+      width: 60px;
+      height: 60px;
+      background-color: #ffcc00;
+      border: 2px solid #000;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    .hat:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body style="font-family: cursive;">
+  <h1>Event Delegation</h1>
+  <p>- Event delegation is a technique in JavaScript where a single event listener is added to a parent element to
+    manage events for multiple child elements.</p>
+  <p>- Instead of adding separate event listeners to each child element, the parent element's event listener handles the
+    events as they <b>bubble up</b> from the child elements.</p>
+
+  <h1>🎩 Welcome to the Hat Party!</h1>
+  <p>Click a hat to greet the guest. Event Delegation handles it all!</p>
+
+  <div id="party">
+    <!-- Hats will be generated here -->
+  </div>
+</body>
+
+</html>
