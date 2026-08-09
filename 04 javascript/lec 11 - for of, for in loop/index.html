@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./script.js"></script>
+</head>
+
+<body style="font-family: cursive;">
+
+  <h1>for...of Loop</h1>
+  <p>- The <b>for...of</b> loop is used to iterate over the <b>values</b> of iterable objects such as Arrays, Strings,
+    Maps, and Sets.</p>
+  <p>- It returns each element directly without using indexes.</p>
+  <p>- It <b>cannot be used directly with plain objects</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let fruits = ["Apple", "Banana", "Mango"]; <br><br>
+
+        for (let fruit of fruits) { <br>
+        &nbsp;&nbsp;console.log(fruit); <br>
+        } <br><br>
+
+        // Apple <br>
+        // Banana <br>
+        // Mango
+    </code>
+
+  <h1>for...in Loop</h1>
+  <p>- The <b>for...in</b> loop is used to iterate over the <b>keys (property names)</b> of an object.</p>
+  <p>- To get the value, use <b>object[key]</b> or <b>object.key</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Amiya", <br>
+        &nbsp;&nbsp;age: 20, <br>
+        &nbsp;&nbsp;course: "BCA" <br>
+        }; <br><br>
+
+        for (let key in student) { <br>
+        &nbsp;&nbsp;console.log(key, student[key]); <br>
+        }
+    </code>
+
+  <h1>Object.keys()</h1>
+  <p>- <b>Object.keys()</b> returns an array containing all the <b>keys (property names)</b> of an object.</p>
+  <p>- The returned array can be used with array methods like <b>map()</b>, <b>filter()</b>, and <b>forEach()</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Aju", <br>
+        &nbsp;&nbsp;age: 21, <br>
+        &nbsp;&nbsp;course: "MCA" <br>
+        }; <br><br>
+
+        console.log(Object.keys(student)); <br>
+
+        // ["name", "age", "course"]
+    </code>
+
+  <h1>Object.values()</h1>
+  <p>- <b>Object.values()</b> returns an array containing all the <b>values</b> of an object.</p>
+  <p>- The returned array can be used with array methods like <b>map()</b>, <b>filter()</b>, and <b>forEach()</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Nikhil", <br>
+        &nbsp;&nbsp;age: 22, <br>
+        &nbsp;&nbsp;course: "B.Tech" <br>
+        }; <br><br>
+
+        console.log(Object.values(student)); <br>
+
+        // ["Nikhil", 22, "B.Tech"]
+    </code>
+
+  <h1>Object.entries()</h1>
+  <p>- <b>Object.entries()</b> returns an array of an object's <b>key-value pairs</b>.</p>
+  <p>- Each element of the returned array is a nested array containing a key and its corresponding value.</p>
+  <p>- It is commonly used with <b>for...of</b> and <b>array destructuring</b>.</p>
+
+  <b>Ex - </b>
+  <br>
+  <code>
+        let student = { <br>
+        &nbsp;&nbsp;name: "Sarthak", <br>
+        &nbsp;&nbsp;age: 23, <br>
+        &nbsp;&nbsp;course: "M.Tech" <br>
+        }; <br><br>
+
+        for (let [key, value] of Object.entries(student)) { <br>
+        &nbsp;&nbsp;console.log(key, value); <br>
+        }
+    </code>
+
+</body>
+
+</html>
