@@ -72,6 +72,14 @@ const employee = {
   }
 }
 
-const copyEmployee = {...employee}
+const copyEmployee = {...employee, address: {...employee.address}}
 copyEmployee.address.city = 'CTC'
+console.log(employee)
+
+const copyEmployee1 = JSON.parse(JSON.stringify(employee))
+copyEmployee1.address.city = 'Rourkela'
+console.log(employee)
+
+const copyEmployee2 = structuredClone(employee)
+copyEmployee2.address.city = 'Sambalpur'
 console.log(employee)
