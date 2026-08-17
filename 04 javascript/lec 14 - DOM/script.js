@@ -51,12 +51,61 @@
 // console.dir(firstImageById)
 
 
-const firstImage = document.querySelector('#first-image')
-console.log("first image", firstImage)
+// const firstImage = document.querySelector('#first-image')
+// console.log("first image", firstImage)
 
-const images = document.querySelectorAll('.css-images')
-console.log("images", images)
-console.log("2nd image", images[1])
+// const images = document.querySelectorAll('.css-images')
+// console.log("images", images)
+// console.log("2nd image", images[1])
+
+
+// ============= 
+
+// console.log(document.querySelectorAll("[username]"))
+// console.log(document.querySelector("[username=admin]"))
+
+// const h2 = document.querySelector('[username=admin]')
+// console.log(h2.getAttribute('username'))
+
+// console.log(document.querySelector("body > p:nth-child(8)").getAttribute('style'))
+// console.log(document.querySelector("body > p:nth-child(8)").getAttribute('style1'))
+
+// document.querySelector("body > p:nth-child(8)").setAttribute("title", "Footer")
+
+// // Read About Global & Local Attribute
+// console.dir(document.querySelector("body > h2:nth-child(3)"))
+// document.querySelector("body > h2:nth-child(3)").setAttribute("title", "Hello World")
+// document.querySelector("body > h2:nth-child(3)").title = "Hello JS"
+
+
+// document.querySelector("body > h2:nth-child(3)").setAttribute("style", "color: red")
+// document.querySelector("body > h2:nth-child(3)").setAttribute("style", "background-color: greenyellow")
+
+
+// create a external css file
+// document.querySelector("body > h2:nth-child(3)").setAttribute("class", "red")
+// document.querySelector("body > h2:nth-child(3)").setAttribute("class", "bgGreenYellow")
+
+
+// // classList property ====================
+// document.querySelector("body > h2:nth-child(3)").classList.add("red")
+// document.querySelector("body > h2:nth-child(3)").classList.add("bgGreenYellow")
+// document.querySelector("body > h2:nth-child(3)").classList.remove("bgGreenYellow")
+// document.querySelector("body > h2:nth-child(3)").classList.toggle("bgGreenYellow")
+
+// document.querySelector("body > h2:nth-child(3)").removeAttribute("class")
+
+
+// Accessing Parent & Sibling Elements
+// document.querySelector("body > p:nth-child(5) > a:nth-child(2)")
+
+// document.querySelector("body > p:nth-child(5) > a:nth-child(2)").parentElement
+
+// document.querySelector("body > p:nth-child(5) > a:nth-child(2)").parentElement.parentElement
+
+
+const firstLink = document.querySelector("body > p:nth-child(5) > a:nth-child(2)")
+console.log(firstLink)
 
 
 

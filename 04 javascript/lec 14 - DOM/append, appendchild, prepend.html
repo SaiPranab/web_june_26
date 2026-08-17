@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 2px solid black;
+      padding: 20px;
+      min-width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>append & <span>appendChild</span> </h1>
+  <div class="container">
+    <div class="card">Card div</div>
+  </div>
+
+  <script>
+    const container = document.querySelector(".container")
+    const card = document.querySelector(".card")
+    const h1 = document.querySelector("h1")
+
+    // console.log(container)
+    // console.log(card)
+    // console.log(h1)
+
+    // container.append(h1)
+    // container.append("Hiiiiiiiii")
+    // container.append("Helllo", card)
+
+    // container.appendChild(h1)
+    // container.appendChild("Hiii")  // error - as appendChild can only add element, but here we're trying to append text
+
+    // const h1Clone2 = h1.cloneNode(true)
+    // h1Clone2.textContent = 'Hello World'
+    // container.appendChild(h1, h1Clone2) // appendChild only adds the first element as a last child
+
+    // Diff betn append & appendChild
+    // 1. append can add multiple arguments as child whereas appendChild only add first element as a child although we have passed multiple arguments in the parameters
+    // 2. append can add text whereas appendChild cannot add text
+
+    
+    // container.prepend(h1)
+    // const h1Clone2 = h1.cloneNode(true)
+    // h1Clone2.textContent = 'Hello World'
+    // container.prepend(h1, h1Clone2) 
+  </script>
+</body>
+
+</html>
