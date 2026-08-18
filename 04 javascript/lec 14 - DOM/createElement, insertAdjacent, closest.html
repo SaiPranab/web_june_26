@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      border: 2px solid black;
+      padding: 10px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p id="first-paragraph">This is the first para graph</p>
+  </div>
+
+  <script>
+    const container = document.querySelector(".container")
+
+    // createElement --------------------
+    const newParagraph = document.createElement("p")
+    container.append(newParagraph)
+    newParagraph.textContent = "This is dynamically created paragraph"
+    newParagraph.id = "new-paragraph"
+
+    // newParagraph.className = "new-paragraph"
+    // newParagraph.style.backgroundColor = "green" // inline css
+
+    // newParagraph.className = "new-paragraph1"
+    newParagraph.classList.add("new-paragraph")
+    newParagraph.classList.add("new-paragraph1")
+    newParagraph.classList.add("highlight")
+
+
+    // insertAdjacentHTML ----------------------------
+    container.insertAdjacentHTML("beforeend", "<p id='htmlParagraph'>inserted before end</p>")
+    container.insertAdjacentHTML("afterend", "<p id='htmlParagraph'>inserted after end</p>")
+
+
+    // insertAdjacentElement ----------------------------
+    const newSpan = document.createElement("span")
+    newSpan.textContent = "Inserted element before begin"
+    container.insertAdjacentElement("beforebegin", newSpan)
+
+    const anotherNewSpan = document.createElement("span")
+    anotherNewSpan.textContent = "Inserted element after dynamically created p"
+    newParagraph.insertAdjacentElement("afterend", anotherNewSpan)
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .grand-grand-parent {
+      border: 2px solid black;
+      padding: 20px;
+    }
+
+    .grand-parent {
+      border: 2px solid blue;
+      padding: 20px;
+    }
+
+    .parent {
+      border: 2px solid green;
+      padding: 20px
+    }
+
+    .sibling1,
+    .sibling2 {
+      border: 2px solid crimson;
+      padding: 20px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grand-grand-parent">
+    <div class="grand-parent">
+      <div class="parent">
+        <div class="sibling1"></div>
+        <div class="sibling2"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const sibling2 = document.querySelector(".sibling2")
+    
+  </script>
+</body>
+
+</html>
