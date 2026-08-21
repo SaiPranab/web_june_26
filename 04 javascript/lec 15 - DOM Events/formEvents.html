@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="home">
+    <input type="text" name="username">
+    <input type="text" name="pass">
+    <br> <br>
+
+    <select name="cars" id="cars">
+      <option value="">Choose a car</option> 
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+
+    <br><br>
+
+    <button>submit</button>
+  </form>
+
+  <script>
+    const form = document.querySelector('form')
+
+    form.addEventListener('submit', (e) => {
+      console.log("/////// form submitted")
+
+      e.preventDefault()
+      // const input = document.querySelector('input')
+      // console.log("value of input is ", input.value)
+      // console.log("value of input is ", input.innerText) 
+
+      const formData = new FormData(form)
+      console.log("////////", formData)
+
+      for(const [key, value] of formData.entries()) {
+        console.log(".......", key , '---->', value)
+      }
+    })
+
+    const input = document.querySelector('input')
+    // input.addEventListener("input", (e) => {
+    //   // console.log("/////////", input.value)
+    //   console.log("/////////", e.target.value)
+    // })
+
+    // document.querySelectorAll('input').forEach(inp => inp.addEventListener("input", (e) => {
+    //   console.log(e.target.name, "--->>", e.target.value)
+    // }))
+
+    input.addEventListener("change", (e) => {
+      console.log("change event", e.target.value)
+    })
+    input.addEventListener("focus", (e) => {
+      console.log('input focus detected')
+    })
+    input.addEventListener("blur", (e) => {
+      console.log('input blur detected')
+    })
+    
+    const select = document.querySelector('select')
+    select.addEventListener("change", (e) => {
+      console.log("select change event", e.target.value)
+    })
+  </script>
+</body>
+
+</html>
