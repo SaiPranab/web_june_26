@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asynchronous Js & Callback Hell</title>
+</head>
+
+<body style="font-family: cursive;">
+  <h1>Asynchronous JavaScript</h1>
+  <p>- Asynchronous Javascript is a an ability to <b>handle multiple operations without blocking the main thread</b>.
+  </p>
+  <p>- As Js is single threaded means it can only perform one task at a time.</p>
+  <p>- But with <b>Asynchronous Programming</b> we can schedule tasks to be executed later by Javascript engine. </p>
+
+  <h1>Callback Hell</h1>
+  <p>- <b>Callback Hell</b> is a situation in javascript where multiple nested Callbacks are used to handle Asynchronous
+    operations</p>
+  <p>- It occurs when one callback depends on the result of the previous callback, which leads to deeply nested callback
+    functions</p>
+
+  <script>
+    // console.log("1")
+    // setTimeout(() => {
+    //   console.log("2")
+    // }, 1000)
+    // console.log("3")
+
+    // ============== process to make Tea (starting callback hell)
+    // setTimeout(() => {
+    //   console.log("Boil water")
+    // }, 1000)
+    // setTimeout(() => {
+    //   console.log("Add ingredients like Tea leaves, ginger...")
+    // }, 2000)
+    // setTimeout(() => {
+    //   console.log("Tea is ready to serve")
+    // }, 3000)
+
+    function makeTea(step, delay, nextStep) {
+      setTimeout(() => {
+        console.log(step)
+
+        if (nextStep) nextStep()
+      }, delay)
+    }
+
+    makeTea("Boil water", 1000, () => {
+      makeTea("Add ingredients like Tea leaves, ginger...", 1000, () => {
+        makeTea("Tea is ready to serve", 1000, () => {
+          makeTea("Pour in cups", 1000)
+        })
+      })
+    })
+  </script>
+</body>
+
+</html>
