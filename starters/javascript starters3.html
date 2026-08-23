@@ -17,3 +17,116 @@
   <p>- It occurs when one callback depends on the result of the previous callback, which leads to deeply nested callback functions</p>
 </body>
 </html>
+
+<!-- --------------------------- Promises in JS ----------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body style="font-family: cursive">
+    <h1>Promises In JS</h1>
+    <p>
+        - A Promise in JavaScript is an object that represents the eventual
+        completion (or failure) of an asynchronous operation and its
+        resulting value.
+    </p>
+    <p>
+        - It allows us to write asynchronous code that is more readable and
+        manageable, avoiding the "callback hell" that often occurs with
+        deeply nested callbacks.
+    </p>
+
+    <h3>A Promise have 3 states</h3>
+    <ul>
+        <li>
+            <p>
+                <b>pending:-</b> The initial state, neither fulfilled nor
+                rejected.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>resolve (or fulfill):-</b> The operation completed
+                successfully, and the promise has a resulting value.
+            </p>
+        </li>
+        <li>
+            <p>
+                <b>reject:-</b> The operation failed, and the promise has a
+                reason for the failure (typically an error object).
+            </p>
+        </li>
+    </ul>
+
+    <h3>then() & catch() method in Promises</h3>
+    <ul>
+        <li><b>then():- </b> When a promise is resolved, then() is automatically executed.</li>
+        <li><b>catch():- </b> When a promise is rejected, catch() is automatically executed.</li>
+    </ul>
+
+    <h3>Promise Chaining</h3>
+    <p>- Promise chaining is a way where we can call multiple promises one after another, so that each one waits for the
+        previous one to finish before it runs.</p>
+    <p>- eg: </p>
+  
+</body>
+</html>
+
+
+<!-- ---------------------------------- Async & Await -------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async & Await</title>
+</head>
+
+<body style="font-family: cursive;">
+    <h1>Async function</h1>
+    <p>- An async function is a function that always returns a Promise</p>
+
+    <h1>await keyword</h1>
+    <p>- The await keyword is used within async function to pause the execution untill a Promise is settled (resolved or
+        rejected).</p>
+</body>
+</html>
+
+
+<!-- ------------------------------- API -------------------------- -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="font-family: cursive;">
+    <h1>API - (Application Programming Interface)</h1>
+    <p>- It is a set rules & protocols that allows different applications to communicate with each other</p>
+    <p>- In simple word it's just a breeze between 2 applications.</p>
+
+    <div style="border: 2px solid black; border-radius: 5px; background-color: lightgray; padding: 10px;">
+        <h3>Free Fake API's List</h3>
+        <ul style="margin-top: -15px;">
+            <li>Dummy JSON</li>
+            <li>JSON placeholder</li>
+            <li>catfact.ninja</li>
+            <li>dog image api</li>
+        </ul>
+    </div>
+
+    <h1>JSON - (javascript Object Notation)</h1>
+    <h3>Diff bet<sup>n</sup> javascript Object & JSON ?</h3>
+    <ul>
+        <li>In key key must be encoded with double quote (String value)</li>
+        <li>In JSON no trailing comma should be avilable.</li>
+    </ul>
+</body>
+</html>
