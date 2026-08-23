@@ -38,22 +38,62 @@
     //   console.log("Tea is ready to serve")
     // }, 3000)
 
-    function makeTea(step, delay, nextStep) {
-      setTimeout(() => {
-        console.log(step)
 
-        if (nextStep) nextStep()
-      }, delay)
+
+    // function makeTea(step, delay, nextStep) {
+    //   setTimeout(() => {
+    //     console.log(step)
+
+    //     if (nextStep) nextStep()
+    //   }, delay)
+    // }
+
+    // makeTea("Boil water", 1000, () => {
+    //   makeTea("Add ingredients like Tea leaves, ginger...", 1000, () => {
+    //     makeTea("Tea is ready to serve", 1000, () => {
+    //       makeTea("Pour in cups", 1000)
+    //     })
+    //   })
+    // })
+
+
+
+    function sendEmail(success, failure) {
+      const number = Math.round(Math.random() * 11)
+
+      if (number > 5) {
+        success()
+      } else {
+        failure()
+      }
     }
 
-    makeTea("Boil water", 1000, () => {
-      makeTea("Add ingredients like Tea leaves, ginger...", 1000, () => {
-        makeTea("Tea is ready to serve", 1000, () => {
-          makeTea("Pour in cups", 1000)
+    // function success() {
+    //   console.log("Email send successfully")
+    // } 
+    // function failure() {
+    //   console.log("Unable to send Email !!!")
+    // }
+    // sendEmail(success, failure)
+
+    sendEmail(function () {
+      console.log("Email-1 send successfully")
+
+      sendEmail(() => {
+        console.log("Email-2 send successfully")
+
+        sendEmail(() => {
+          console.log("Email-3 send successfully")
+        }, () => {
+          console.log("Unable to send Email-3 !!!")
         })
+      }, () => {
+        console.log("Unable to send Email-2 !!!")
       })
+    }, () => {
+      console.log("Unable to send Email-1 !!!")
     })
   </script>
 </body>
-
+<!-- Promises -->
 </html>
