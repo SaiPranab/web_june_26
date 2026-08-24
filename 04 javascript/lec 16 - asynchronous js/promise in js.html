@@ -73,26 +73,66 @@
     // console.log(p)
 
 
-    const p = new Promise((resolve, reject) => {
-      const number = Math.round(Math.random() * 11)
+    // const p = new Promise((resolve, reject) => {
+    //   const number = Math.round(Math.random() * 11)
 
-      if(number > 5)
-        resolve(number)
-      else 
-        reject(number)
-    })
-    p.then((res) => {
-      // console.log("Promise is resolved", p)
-      console.log("Promise is resolved", res)
-    })
-    .catch((err) => {
-      // console.log("Promise is rejected", p)
-      console.log("Promise is rejected", err)
-    })
-    .finally(() => {
-      console.log("Always finally")
-    })
-  </script>
+    //   if(number > 5)
+    //     resolve(number)
+    //   else 
+    //     reject(number)
+    // })
+    // p.then((res) => {
+    //   // console.log("Promise is resolved", p)
+    //   console.log("Promise is resolved", res)
+    // })
+    // .catch((err) => {
+    //   // console.log("Promise is rejected", p)
+    //   console.log("Promise is rejected", err)
+    // })
+    // .finally(() => {
+    //   console.log("Always finally")
+    // })
+    </script>
+
+
+    <!-- ======================== Promise Chaining ================ -->
+    <button id="resolve-btn">RESOLVE</button>
+    <button id="reject-btn">REJECT</button>
+    
+    <script>
+      const resolveBtn = document.querySelector("#resolve-btn")
+      const rejectBtn = document.querySelector("#reject-btn")
+
+      const p = new Promise((resolve, reject) => {
+        resolveBtn.addEventListener('click', () => {
+          resolve("Promise got resolved")
+        })
+
+        rejectBtn.addEventListener('click', () => {
+          reject("Promise got rejected")
+        })
+      })
+
+      p.then((res) => {
+        console.log("111111.", res)
+        return "JT"
+      })
+      .then((res) => {
+        console.log("Second Promise got resolved", res)
+      })
+      .then((res) => {
+        console.log("Third Promise got resolved", res)
+      })
+      .catch((err) => {
+        console.log("222222.", err)
+      })
+
+      /**
+       * - By default then function returns a Promise whoose state fulfilled * and the resulting value is undefined
+       * - If we want some custom result value of returned Promise then we need to return some value from then() function
+       * */
+    </script>
+    
 </body>
 
 </html>
