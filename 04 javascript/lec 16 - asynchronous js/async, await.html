@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Async & Await</title>
+</head>
+
+<body style="font-family: cursive;">
+  <h1>Async function</h1>
+  <p>- An async function is a function that always returns a Promise</p>
+  <p>- The returned Promise state is by default fulfilled & promise result is undefined</p>
+
+  <h1>await keyword</h1>
+  <p>- The await keyword is used within async function to pause the execution untill a Promise is settled (resolved or
+    rejected).</p>
+
+  <script>
+    // async function hello() {
+    //   return "hello everyone!!!"
+    //   // return new Promise(() => {})
+    // }
+
+    // hello()
+    //   .then((res) => {
+    //     console.log("Promise is resolved", res)
+    //   })
+    //   .catch((err) => {
+    //     console.log("Some error occured", err)
+    //   })
+
+    
+    function wait() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          console.log("Wait complete")
+          reject("Waiting Issue")
+        }, 3000)
+      })
+    }
+
+    const awaitDemo = async () =>  {
+      try {
+        console.log("Before wait")
+        await wait()
+        await wait()
+        await wait()
+        console.log("After wait")
+      } catch (err) {
+        console.log("Some error occuurred", err)
+      }
+    }
+    awaitDemo()
+  </script>
+</body>
+
+</html>
