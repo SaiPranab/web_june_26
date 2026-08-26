@@ -1,30 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
+
 <body style="font-family: cursive;">
-    <h1>API - (Application Programming Interface)</h1>
-    <p>- It is a set rules & protocols that allows different applications to communicate with each other</p>
-    <p>- In simple word it's just a breeze between 2 applications.</p>
+	<h1>API - (Application Programming Interface)</h1>
+	<p>- It is a set rules & protocols that allows different applications to communicate with each other</p>
+	<p>- In simple word it's just a breeze between 2 applications.</p>
 
-    <div style="border: 2px solid black; border-radius: 5px; background-color: lightgray; padding: 10px;">
-        <h3>Free Fake API's List</h3>
-        <ul style="margin-top: -15px;">
-            <li>Dummy JSON</li>
-            <li>JSON placeholder</li>
-            <li>catfact.ninja</li>
-            <li>dog image api</li>
-        </ul>
-    </div>
+	<div style="border: 2px solid black; border-radius: 5px; background-color: lightgray; padding: 10px;">
+		<h3>Free Fake API's List</h3>
+		<ul style="margin-top: -15px;">
+			<li>Dummy JSON</li>
+			<li>JSON placeholder</li>
+			<li>catfact.ninja</li>
+			<li>dog image api</li>
+		</ul>
+	</div>
 
-    <h1>JSON - (javascript Object Notation)</h1>
-    <h3>Diff bet<sup>n</sup> javascript Object & JSON ?</h3>
-    <ul>
-        <li>In key key must be encoded with double quote (String value)</li>
-        <li>In JSON no trailing comma should be avilable.</li>
-    </ul>
+	<h1>JSON - (javascript Object Notation)</h1>
+	<h3>Diff bet<sup>n</sup> javascript Object & JSON ?</h3>
+	<ul>
+		<li>In key key must be encoded with double quote (String value)</li>
+		<li>In JSON no trailing comma should be avilable.</li>
+	</ul>
+
+	<br> <br> <br>
+
+	<table id="productsTable" border="1">
+		<caption>Products Table</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Title</th>
+				<th>Brand</th>
+				<th>Category</th>
+				<th>Year</th>
+				<th>Price</th>
+				<th>Rating</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<script>
+		fetch('https://dummyjson.com/products')
+			.then((response) => {
+				// console.log("/////", response)
+				// console.log("/////", response.json())	
+				return response.json()
+			})
+			.then((res) => {
+				console.log("1111111", res)
+				console.log("2222222", res.products)
+
+				const modifiedProducts = res.products.map((product) => {
+					return {
+						id: product.id,
+						title: product.title,
+						brand: product.brand,
+						category: product.category,
+						price: product.price,
+						rating: product.rating,
+						createdYear: new Date(product.meta.createdAt).getFullYear()
+					}
+				})
+				console.log("333333", modifiedProducts)
+
+				const tbody = document.querySelector("#productsTable tbody")
+				modifiedProducts.forEach(p => {
+					const row = document.createElement('tr')
+
+					const idCol = document.createElement('td')
+					idCol.innerText = p.id
+					const titleCol = document.createElement('td')
+					titleCol.innerText = p.title
+
+					row.append(idCol, titleCol)
+					tbody.append(row)
+				})				
+			})
+			.catch((err) => {
+				console.log("Some error occurred", err)
+			})
+	</script>
 </body>
+
 </html>
