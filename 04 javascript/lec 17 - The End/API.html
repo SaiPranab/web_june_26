@@ -82,7 +82,37 @@
 
 					row.append(idCol, titleCol)
 					tbody.append(row)
-				})				
+				})
+			})
+			.catch((err) => {
+				console.log("Some error occurred", err)
+			})
+
+
+		// Adding a new Product using Fetch
+		fetch('https://dummyjson.com/products/add', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				title: "Laptop Bag",
+				brand: "Lenovo",
+				category: "Bag",
+				price: "1099",
+				rating: "4.4",
+				createdYear: "2026"
+			})
+		})
+			.then((response) => {
+				console.log("Got response", response)
+				if (response.status === 201)
+					return response.json()
+				else
+					throw new Error("Unabel to create Product")
+			})
+			.then((res) => {
+				console.log("Final result is", res)
 			})
 			.catch((err) => {
 				console.log("Some error occurred", err)
