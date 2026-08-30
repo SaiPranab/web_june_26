@@ -19,4 +19,4 @@
 
 // 2. Default Import
 import name from "./export.js"
-console.log(name)
+console.log(name())

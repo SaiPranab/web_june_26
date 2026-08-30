@@ -34,6 +34,19 @@ const user = {
 // export default username
 // export default user
 
-export default function greet() {
-  console.log("hiiiiiiiiiii")
+// export default function greet() {
+//   console.log("hiiiiiiiiiii")
+// }
+
+
+
+
+export  default function hii(){
+    console.log("hii ");
+      return function hello(){
+          console.log("bye ");
+          
+
+      }
+
 }
