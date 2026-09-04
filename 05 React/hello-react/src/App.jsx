@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import './App.css'
 import Sai from './Sai'
 import Item from "./Product"
+import products from './products'
 
 function App() {
   const a = 10
@@ -36,7 +37,7 @@ function App() {
     // </Fragment>
 
     <>
-      <h1 style={{backgroundColor: 'red', color:'yellow'}}>
+      <h1 style={{ backgroundColor: 'red', color: 'yellow' }}>
         Hello React
       </h1>
       <h2>
@@ -45,14 +46,19 @@ function App() {
 
       <p>a is : {a}</p>
       <p>b is : {b}</p>
-      <p>a + b is : { a + b }</p>
+      <p>a + b is : {a + b}</p>
 
       {/* { Sai() }
       <Sai></Sai> */}
       <Sai />
 
-      <Item name="Watch" price="2500" description="This is a watch" brand="rolex" />
-      <Item  price="30000.99" brand="Samsung" />
+      {/* <Item name="Watch" price="2500" description="This is a watch" brand="rolex" />
+      <Item name="Mobiles" price="30000.99" brand="Samsung" /> */}
+
+      {products.map(p => (
+        <Item name={p.name} price={p.price}
+          description={p.description} brand={p.brand} />
+      ))}
     </>
   )
 }
