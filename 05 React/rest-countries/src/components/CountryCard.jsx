@@ -24,7 +24,7 @@ export default function CountryCard({
         </p>
 
         <p>
-          <b>Capital: {capital}</b>
+          <b>Capital: {capital.length ? capital.map(cap => cap.name) : 'N/A'}</b>
         </p>
       </div>
     </a>

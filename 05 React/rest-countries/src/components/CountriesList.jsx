@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import countriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 
@@ -7,21 +7,40 @@ export default function CountriesList({ query }) {
 
   const filteredCountries = countriesData.filter(country =>
     country.names.common.toLowerCase().includes(query.toLowerCase()))
+    
+    useEffect(() => {
+      console.log("useEffect called")
 
-  fetch('https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
-    {
-      headers: {
-        'Authorization': 'Bearer rc_live_d48b508f8bd04db9a9a9b751ac01253e'
-      }
-    }
-  )
-    .then((response) => response.json())
-    .then((result) => {
-      console.log("result is", result)
-      setCountriesData(result.data.objects)
-    })
+      fetch('https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
+        {
+          headers: {
+            'Authorization': 'Bearer rc_live_d48b508f8bd04db9a9a9b751ac01253e'
+          }
+        }
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          // console.log("result is", result)
+          setCountriesData(result.data.objects)
+        })
+    }, [])
 
-  console.log("////////", countriesData)
+  /*
+    useEffect =>
+      - to perform something on the mount (first render) of the component
+      - to perform something when state is changed
+      - to perform something when the component is unmount (removed) from the web page
+
+    syntax :-
+      useEffect(callback fn, dependency array)
+
+      dependency array:- 
+        is not available -> useEffect will be called on every render & re-render 
+        is [] -> useEffect is only called once
+        is [state] -> useEffect will only called on render & on the state change
+  */
+
+  console.log("CountriesList Component", countriesData)
 
   return (
     <>
