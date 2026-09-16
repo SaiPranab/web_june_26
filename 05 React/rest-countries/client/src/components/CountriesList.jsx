@@ -11,17 +11,15 @@ export default function CountriesList({ query }) {
     useEffect(() => {
       console.log("useEffect called")
 
-      fetch('https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
-        {
-          headers: {
-            'Authorization': 'Bearer rc_live_d48b508f8bd04db9a9a9b751ac01253e'
-          }
-        }
-      )
+      // fetch(
+      //   'https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
+      //   { headers: { 'Authorization': 'Bearer rc_live_a0096ec8bdb541398af3b9c10e6d6292' } }
+      // )
+      fetch("http://localhost:3000/countries")
         .then((response) => response.json())
         .then((result) => {
           // console.log("result is", result)
-          setCountriesData(result.data.objects)
+          setCountriesData(result)
         })
     }, [])
 

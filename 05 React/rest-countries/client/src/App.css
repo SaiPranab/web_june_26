@@ -58,7 +58,7 @@ a {
   gap: 64px;
   flex-wrap: wrap;
   margin-inline: auto;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .country-card {
