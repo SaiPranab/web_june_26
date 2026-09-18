@@ -5,16 +5,39 @@ import "./CountryDetails.css"
 export default function CountryDetail() {
   const [countryData, setCountryData] = useState(null)
   const { country } = useParams()
+  console.log("......", country)
   const navigate = useNavigate()
 
   useEffect(() => {
     fetch("http://localhost:3000/countries?names.common=" + country)
       .then(resp => resp.json())
       .then(res => {
-        console.log(res)
-        setCountryData(res[0])
+        // console.log(res)
+        // setCountryData(res[0])
+
+        // res[0].borders.map(border => 
+        //   fetch("Http://localhost:3000/countries?codes.alpha_3=" + border)
+        //     .then(resp => resp.json())
+        //     .then(res1 => {
+        //       console.log(",,,", res1)
+        //     })
+        // )
+
+        Promise.all(res[0].borders.map(border =>
+          fetch("Http://localhost:3000/countries?codes.alpha_3=" + border)
+            .then(resp => resp.json())
+            .then(res1 => ({border: res1[0].codes.alpha_3, c_name: res1[0].names.common}))
+        ))
+          .then(borders => {
+            // console.log("####", borders)
+            // console.log("11111111", res[0])
+            // console.log("2222222222", {...res[0], borders: [...borders]})
+            setCountryData({...res[0], borders: [...borders]})
+          })
       })
-  }, [])
+
+
+  }, [country])
 
   return (
     <main>
@@ -65,7 +88,7 @@ export default function CountryDetail() {
                   </p>
                 </div>
                 <div className="border-countries">
-                  <b>Border Countries: {countryData.borders.join(", ") || 'N/A'} </b>&nbsp;
+                  <b>Border Countries: {countryData.borders.map(b => <Link key={b.border} to={`/${b.c_name}`}>{b.border}</Link>) || 'N/A'} </b>&nbsp;
                 </div>
               </div>
             </div>
