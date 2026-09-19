@@ -9,8 +9,6 @@ export default function CountriesList({ query }) {
     country.names.common.toLowerCase().includes(query.toLowerCase()))
     
     useEffect(() => {
-      console.log("useEffect called")
-
       // fetch(
       //   'https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
       //   { headers: { 'Authorization': 'Bearer rc_live_a0096ec8bdb541398af3b9c10e6d6292' } }
@@ -37,8 +35,6 @@ export default function CountriesList({ query }) {
         is [] -> useEffect is only called once
         is [state] -> useEffect will only called on render & on the state change
   */
-
-  console.log("CountriesList Component", countriesData)
 
   return (
     <>

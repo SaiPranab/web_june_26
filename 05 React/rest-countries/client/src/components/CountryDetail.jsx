@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router"
 import "./CountryDetails.css"
+import Header from "./Header"
 
 export default function CountryDetail() {
   const [countryData, setCountryData] = useState(null)
+  const [countryNotFound, setCountryNotFound] = useState(false)
   const { country } = useParams()
   console.log("......", country)
   const navigate = useNavigate()
@@ -15,13 +17,10 @@ export default function CountryDetail() {
         // console.log(res)
         // setCountryData(res[0])
 
-        // res[0].borders.map(border => 
-        //   fetch("Http://localhost:3000/countries?codes.alpha_3=" + border)
-        //     .then(resp => resp.json())
-        //     .then(res1 => {
-        //       console.log(",,,", res1)
-        //     })
-        // )
+        if(!res.length) {
+          setCountryNotFound(true)
+          return
+        }
 
         Promise.all(res[0].borders.map(border =>
           fetch("Http://localhost:3000/countries?codes.alpha_3=" + border)
@@ -35,11 +34,14 @@ export default function CountryDetail() {
             setCountryData({...res[0], borders: [...borders]})
           })
       })
-
-
   }, [country])
 
+  if(countryNotFound) {
+    return <h2 style={{textAlign: 'center'}}>Country Not Found!!!</h2>
+  }
+
   return (
+    <>
     <main>
       {
         countryData === null ? <p>Loading...</p> : (
@@ -96,5 +98,6 @@ export default function CountryDetail() {
         )
       }
     </main>
+    </>
   )
 }
