@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import countriesData from "../countriesData";
 import CountryCard from "./CountryCard";
+import CountriesListShimmer from "./CountriesListShimmer";
 
 export default function CountriesList({ query }) {
   const [countriesData, setCountriesData] = useState([])
 
   const filteredCountries = countriesData.filter(country =>
     country.names.common.toLowerCase().includes(query.toLowerCase()))
-    
-    useEffect(() => {
-      // fetch(
-      //   'https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
-      //   { headers: { 'Authorization': 'Bearer rc_live_a0096ec8bdb541398af3b9c10e6d6292' } }
-      // )
-      fetch("http://localhost:3000/countries")
-        .then((response) => response.json())
-        .then((result) => {
-          // console.log("result is", result)
-          setCountriesData(result)
-        })
-    }, [])
+
+  useEffect(() => {
+    // fetch(
+    //   'https://api.restcountries.com/countries/v5?response_fields=names.common,capitals,flag.url_svg,region,population&limit=100',
+    //   { headers: { 'Authorization': 'Bearer rc_live_a0096ec8bdb541398af3b9c10e6d6292' } }
+    // )
+    fetch("http://localhost:3000/countries")
+      .then((response) => response.json())
+      .then((result) => {
+        // console.log("result is", result)
+        setCountriesData(result)
+      })
+  }, [])
 
   /*
     useEffect =>
@@ -40,18 +41,21 @@ export default function CountriesList({ query }) {
     <>
       <div className="countries-container">
         {
-          filteredCountries.length != 0 ?
-            (filteredCountries.map((country, idx) => (
-              <CountryCard
-                key={idx}
-                flag={country.flag.url_svg || "www.google.com"}
-                name={country.names.common}
-                population={country.population}
-                capital={country.capitals}
-                region={country.region}
-              />)))
-            :
-            <p>Unable to find Country with name:- {query}</p>
+          !countriesData.length ?
+            <CountriesListShimmer /> :
+
+            filteredCountries.length != 0 ?
+              (filteredCountries.map((country, idx) => (
+                <CountryCard
+                  key={idx}
+                  flag={country.flag.url_svg || "www.google.com"}
+                  name={country.names.common}
+                  population={country.population}
+                  capital={country.capitals}
+                  region={country.region}
+                />)))
+              :
+              <h2>Unable to find Country with name:- {query}</h2>
         }
       </div>
     </>

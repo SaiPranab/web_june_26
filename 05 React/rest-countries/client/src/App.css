@@ -162,3 +162,41 @@ a {
 
 
 /* ==================== App.css (UPTO 160 line)========================== */
+body .shimmer-card {
+  --shimmer-color: #c7c7c7;
+}
+
+body.dark .shimmer-card {
+  /* --shimmer-color: rgb(91, 91, 109); */
+  --shimmer-color: #4e5e6d;
+}
+
+.shimmer-card {
+  height: 350px;
+}
+
+.shimmer-card .flag-container {
+  height: 180px;
+  background-color: var(--shimmer-color);
+}
+
+.shimmer-card .card-title {
+  height: 30px;
+  background-color: var(--shimmer-color);
+  border-radius: 5px;
+  margin-inline: 10px;
+}
+
+.shimmer-card .card-text-container {
+  padding-inline: 10px;
+}
+
+.shimmer-card .card-text-container p{
+  height: 18px;
+  background-color: var(--shimmer-color);
+  border-radius: 5px;
+}
+
+.shimmer-card .card-text-container p:last-child {
+  width: 65%;
+}

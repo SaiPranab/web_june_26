@@ -7,7 +7,6 @@ export default function CountryDetail() {
   const [countryData, setCountryData] = useState(null)
   const [countryNotFound, setCountryNotFound] = useState(false)
   const { country } = useParams()
-  console.log("......", country)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -45,10 +44,15 @@ export default function CountryDetail() {
     <main>
       {
         countryData === null ? <p>Loading...</p> : (
-          <div className="country-details-container">
-            <span className="back-button" onClick={() => navigate("/")}>
-              <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
-            </span>
+          <div className="country-details-container ">
+            <div className="navigation-container">
+                <span className="back-button" onClick={() => navigate(-1)}>
+                <i className="fa-solid fa-arrow-left"></i>&nbsp; Back
+              </span>
+              <span className="back-button" onClick={() => navigate(1)}>
+                Forward <i className="fa-solid fa-arrow-right"></i>
+              </span>
+            </div>
             <div className="country-details">
               <img src={countryData.flag.url_svg} alt="#" />
               <div className="details-text-container">
