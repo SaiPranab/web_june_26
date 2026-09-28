@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { MessageContext } from './context/MessageContext'
 
-const C = ({ message }) => {
+const C = () => {
+  const message = useContext(MessageContext)
+
   return (
     <div style={{
       border: "2px solid blue",

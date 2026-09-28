@@ -1,7 +1,7 @@
 import A from './A'
 
 const App = () => {
-  const message = "Good morning Everyone"
+  // const message = "Good morning Everyone"
 
   return (
     <div style={{
@@ -9,7 +9,7 @@ const App = () => {
       padding: '20px'
     }}>
       App Component
-      <A message={message} />
+      <A  />
     </div>
   )
 }

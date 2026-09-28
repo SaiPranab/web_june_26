@@ -1,11 +1,10 @@
 import React, { useContext } from 'react'
 import C from './C'
-import { MessageContext } from './main'
+// import { MessageContext } from './main'
 
-const B = ({message}) => {
-  const context = useContext(MessageContext)
-  console.log("////", context)
-
+const B = () => {
+  // const context = useContext(MessageContext)
+  // console.log("////", context)
 
   return (
     <div style={{
@@ -13,7 +12,7 @@ const B = ({message}) => {
       padding: '20px'
     }}>
       B Component
-      <C message={message} />
+      <C />
     </div>
   )
 }
