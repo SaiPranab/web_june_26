@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import countriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 import CountriesListShimmer from "./CountriesListShimmer";
+import { WindowSizeContext } from "../context/windowSizeContext";
 
 export default function CountriesList({ query }) {
   const [countriesData, setCountriesData] = useState([])
 
   const filteredCountries = countriesData.filter(country =>
-    country.names.common.toLowerCase().includes(query.toLowerCase()))
+    country.names.common.toLowerCase().includes(query.toLowerCase()) || 
+    country.region.toLowerCase().includes(query.toLowerCase()))
 
   useEffect(() => {
     // fetch(
@@ -20,6 +22,25 @@ export default function CountriesList({ query }) {
         // console.log("result is", result)
         setCountriesData(result)
       })
+  }, [])
+
+  // const [width, setWidth] = useState('')
+  // const [height, setHeight] = useState('')
+  // const [windowSize, setWindowSize] = useState({
+  //   width: innerWidth,
+  //   height: innerHeight
+  // })
+  const { windowSize, setWindowSize } = useContext(WindowSizeContext)
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      // console.log(innerWidth, "X", innerHeight)
+      // setWidth(innerWidth)
+      // setHeight(innerHeight)
+      setWindowSize({
+        width: innerWidth,
+        height: innerHeight
+      })
+    })
   }, [])
 
   /*
@@ -39,6 +60,8 @@ export default function CountriesList({ query }) {
 
   return (
     <>
+      <h1 style={{textAlign: 'center'}}>{windowSize.width} X {windowSize.height}</h1>
+
       <div className="countries-container">
         {
           !countriesData.length ?

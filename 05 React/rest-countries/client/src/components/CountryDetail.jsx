@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router"
 import "./CountryDetails.css"
 import Header from "./Header"
+import { ThemeContext } from "../context/ThemeContext"
+import { WindowSizeContext } from "../context/windowSizeContext"
 
 export default function CountryDetail() {
+  const {isDark} = useContext(ThemeContext)
+  const { windowSize } = useContext(WindowSizeContext)
+
   const [countryData, setCountryData] = useState(null)
   const [countryNotFound, setCountryNotFound] = useState(false)
   const { country } = useParams()
@@ -41,7 +46,8 @@ export default function CountryDetail() {
 
   return (
     <>
-    <main>
+    <h1 style={{textAlign: 'center'}}>{windowSize.width} X {windowSize.height}</h1>
+    <main className={`${isDark && 'dark'}`}>
       {
         countryData === null ? <p>Loading...</p> : (
           <div className="country-details-container ">
