@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import countriesData from "../countriesData";
 import CountryCard from "./CountryCard";
 import CountriesListShimmer from "./CountriesListShimmer";
-import { WindowSizeContext } from "../context/windowSizeContext";
+import useWindowSize from "../hooks/useWindowSize";
 
 export default function CountriesList({ query }) {
   const [countriesData, setCountriesData] = useState([])
@@ -24,25 +24,6 @@ export default function CountriesList({ query }) {
       })
   }, [])
 
-  // const [width, setWidth] = useState('')
-  // const [height, setHeight] = useState('')
-  // const [windowSize, setWindowSize] = useState({
-  //   width: innerWidth,
-  //   height: innerHeight
-  // })
-  const { windowSize, setWindowSize } = useContext(WindowSizeContext)
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      // console.log(innerWidth, "X", innerHeight)
-      // setWidth(innerWidth)
-      // setHeight(innerHeight)
-      setWindowSize({
-        width: innerWidth,
-        height: innerHeight
-      })
-    })
-  }, [])
-
   /*
     useEffect =>
       - to perform something on the mount (first render) of the component
@@ -57,6 +38,8 @@ export default function CountriesList({ query }) {
         is [] -> useEffect is only called once
         is [state] -> useEffect will only called on render & on the state change
   */
+
+  const windowSize = useWindowSize();
 
   return (
     <>
