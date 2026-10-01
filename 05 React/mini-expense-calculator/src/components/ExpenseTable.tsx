@@ -1,4 +1,12 @@
-const ExpenseTable = () => {
+import type React from "react"
+import type { Expense } from "../models"
+
+interface expenseTableProps {
+  expenses: Expense[]
+}
+
+const ExpenseTable = ({ expenses }: expenseTableProps) => {
+
   return (
     <>
       <table className="expense-table">
@@ -45,6 +53,15 @@ const ExpenseTable = () => {
           </tr>
         </thead>
         <tbody>
+          {
+            expenses.map(exp => (
+              <tr key={exp.id}>
+                <td>{exp.title}</td>
+                <td>{exp.category}</td>
+                <td>{exp.amount}</td>
+              </tr>
+            ))
+          }
           <tr>
             <th>Total</th>
             <th></th>
