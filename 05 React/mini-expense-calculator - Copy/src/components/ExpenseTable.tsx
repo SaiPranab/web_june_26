@@ -1,13 +1,18 @@
 import type React from "react"
-import type { Expense } from "../models"
-import { useState } from "react"
+import type { MenuPosition, Expense } from "../models"
+import { useState, type Dispatch, type SetStateAction } from "react"
+import ContextMenu from "./ContextMenu"
 
 interface expenseTableProps {
-  expenses: Expense[]
+  expenses: Expense[],
+  setExpenses: Dispatch<SetStateAction<Expense[]>>
+  setExpense: Dispatch<SetStateAction<Expense>>
 }
 
-const ExpenseTable = ({ expenses }: expenseTableProps) => {
+const ExpenseTable = ({ expenses, setExpenses, setExpense }: expenseTableProps) => {
   const [sortCallback, setSortCallback] = useState<any>(() => () => { })
+  const [menuPosition, setMenuPosition] = useState<MenuPosition>({})
+  const [rowId, setRowId] = useState<string>('')
 
   const [filteredCategory, setFilteredCategory] = useState<string>('')
   const filteredExpenses = expenses.filter(exp => exp.category.includes(filteredCategory))
@@ -18,7 +23,20 @@ const ExpenseTable = ({ expenses }: expenseTableProps) => {
 
   return (
     <>
-      <table className="expense-table">
+      <ContextMenu
+        menuPosition={menuPosition}
+        setMenuPosition={setMenuPosition}
+        rowId={rowId}
+        setExpenses={setExpenses}
+        setExpense={setExpense}
+        expenses={expenses}
+      />
+
+      <table className="expense-table" onClick={() => {
+        if(menuPosition.left) {
+          setMenuPosition({})
+        }
+      }}>
         <thead>
           <tr>
             <th>Title</th>
@@ -69,7 +87,14 @@ const ExpenseTable = ({ expenses }: expenseTableProps) => {
             filteredExpenses
               .sort(sortCallback)
               .map(exp => (
-                <tr key={exp.id}>
+                <tr key={exp.id} onContextMenu={(e) => {
+                  e.preventDefault();
+                  setMenuPosition({
+                    top: e.clientY + 30,
+                    left: e.clientX + 5
+                  })
+                  setRowId(exp.id)
+                }}>
                   <td>{exp.title}</td>
                   <td>{exp.category}</td>
                   <td>{parseFloat(exp.amount).toFixed(2)}</td>
